@@ -35,7 +35,6 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     //新增分类
-
     @Override
     public void save(CategoryDTO categoryDTO) {
         Category category = new Category();
@@ -46,5 +45,15 @@ public class CategoryServiceImpl implements CategoryService {
         category.setCreateUser(BaseContext.getCurrentId());
         category.setUpdateUser(BaseContext.getCurrentId());
         categoryMapper.insert(category);
+    }
+
+    //修改分类
+    @Override
+    public void update(CategoryDTO categoryDTO) {
+        Category category = new Category();
+        BeanUtils.copyProperties(categoryDTO, category);
+        category.setUpdateUser(BaseContext.getCurrentId());
+        category.setUpdateTime(LocalDateTime.now());
+        categoryMapper.update(category);
     }
 }

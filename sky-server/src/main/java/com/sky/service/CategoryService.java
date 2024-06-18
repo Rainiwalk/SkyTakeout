@@ -11,4 +11,7 @@ public interface CategoryService {
 
     //新增分类
     void save(CategoryDTO categoryDTO);
+
+    //修改分类
+    void update(CategoryDTO categoryDTO);
 }
