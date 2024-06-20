@@ -6,6 +6,7 @@
         update category
         <set>
             <if test="name != null">name = #{name},</if>
+            <if test="type != null">type = #{type},</if>
             <if test="sort != null">sort = #{sort},</if>
             <if test="status != null">status = #{status},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
@@ -19,10 +20,18 @@
             <if test="name != null and name != ''">
                 and name like concat('%',#{name},'%')
             </if>
-            <if test="type != null and type != ''">
+            <if test="type != null">
                 and type = #{type}
             </if>
         </where>
-        order by sort asc
+        order by sort asc, create_time desc
+    </select>
+    <select id="list" resultMap="Category">
+        select * from category
+        where status = 1
+        <if test="type != null">
+            and type = #{type}
+        </if>
+        order by sort asc, create_time desc
     </select>
 </mapper>

@@ -29,6 +29,5 @@ public interface CategoryMapper {
     void deleteById(Long id);
 
     //根据类型查询分类
-    @Select("select * from category where type = #{type}")
     List<Category> list(Integer type);
 }
