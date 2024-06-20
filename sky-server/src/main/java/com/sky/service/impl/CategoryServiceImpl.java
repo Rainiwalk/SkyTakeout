@@ -66,4 +66,17 @@ public class CategoryServiceImpl implements CategoryService {
                 .build();
         categoryMapper.update(category);
     }
+
+    //根据id删除分类
+    @Override
+    public void deleteById(Long id) {
+        categoryMapper.deleteById(id);
+    }
+
+    //根据类型查询分类
+    @Override
+    public List<Category> list(Integer type) {
+        List<Category> list = categoryMapper.list(type);
+        return list;
+    }
 }
