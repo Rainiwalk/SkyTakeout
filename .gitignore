@@ -4,3 +4,6 @@
 *.class
 *Test.java
 **/test/
+
+# 忽略dev-yml
+application-dev.yml
