@@ -37,4 +37,17 @@ public interface OrderMapper {
     //OrderServiceImpl的payment虚拟支付使用
     @Update("update orders set status = #{orderStatus},pay_status = #{orderPaidStatus} ,checkout_time = #{check_out_time} where id = #{id}")
     void updateStatus(Integer orderStatus, Integer orderPaidStatus, LocalDateTime check_out_time, Long id);
+
+    /**
+     * 分页条件查询并按下单时间排序
+     * @param ordersPageQueryDTO
+     */
+    Page<Orders> pageQuery(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    /**
+     * 根据id查询订单
+     * @param id
+     */
+    @Select("select * from orders where id=#{id}")
+    Orders getById(Long id);
 }
