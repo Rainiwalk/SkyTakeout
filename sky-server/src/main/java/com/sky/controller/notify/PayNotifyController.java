@@ -31,6 +31,8 @@ public class PayNotifyController {
 
     /**
      * 支付成功回调
+     * 用户支付成功跳转后应该就访问该接口
+     * 事实证明虚拟支付根本不会回调到该接口
      *
      * @param request
      */
